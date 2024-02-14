@@ -15,7 +15,7 @@ func iconContents(name string) templ.Component {
 }
 
 templ Icon(name string, classNames []string) {
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class={classNames}>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class={classNames} fill="currentColor">
 		@iconContents(name)
 	</svg>
 }
