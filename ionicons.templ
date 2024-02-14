@@ -1,0 +1,21 @@
+package ionicons
+
+import (
+	"embed"
+	"path"
+)
+
+//go:embed data
+var data embed.FS
+
+func iconContents(name string) templ.Component {
+	data, err := data.ReadFile(path.Join("data", name + ".svg"))
+
+	return templ.Raw(string(data), err)
+}
+
+templ Icon(name string, classNames []string) {
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class={classNames}>
+		@iconContents(name)
+	</svg>
+}
